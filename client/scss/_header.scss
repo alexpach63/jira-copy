@@ -1,0 +1,23 @@
+header{
+	height: 40px;
+	background: #205081;
+	ul{
+
+	}
+	li{
+		float: left;
+	}
+	a{
+		display: block;
+		line-height: 40px;
+		padding: 0 20px;
+		background: transparent;
+		color: #fff;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		&:hover,
+		&.active{
+			background: #296ca3;
+		}
+	}
+}

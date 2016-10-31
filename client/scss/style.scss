@@ -1,0 +1,31 @@
+@import 'reset';
+@import 'header';
+@import 'sidebar';
+@import 'issueses';
+*{box-sizing: border-box;} 
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+}
+// .contain{
+// 	width: 960px;
+// 	margin: 0 auto;
+// }
+h1{
+	font-size: 30px;
+}
+.cWrap{
+	width: 100%;
+	padding-left: 50px;
+	position: relative;
+}
+
+.cHeader{
+	height: 80px;
+	padding: 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+.cContent{
+	padding: 20px;
+}

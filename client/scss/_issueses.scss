@@ -1,0 +1,60 @@
+.issueses{
+  &__zag,
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    > div{
+      width: 19%;
+    }
+  }
+  &__zag{
+    padding-bottom: 20px;
+    &__i{
+      border-bottom: 5px solid #f5f5f5;
+      padding: 10px 10px 10px 0;
+      font-size: 16px;
+    }
+  }
+  &__list{
+
+  }
+
+  &__col{
+    background: #f5f5f5;
+    min-height: 600px;
+  }
+}
+
+.issue{
+  border: 1px solid #ccc;
+  background: #fff;
+  min-height: 66px;
+  padding: 10px 10px 10px 38px;
+  border-left: 4px solid #ff2929;
+  margin-bottom: 1px;
+  &__machine_name{
+    display: block;
+    color: #3b73af;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-decoration: none;
+    span{
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+    &:hover span{
+      border-color: #3b73af;
+    }
+  }
+  &__name{
+
+  }
+}
+
+.card{
+  border: 1px dashed gray;
+  padding: 0.5rem 1rem;
+  margin-bottom: .5rem;
+  background-color: white;
+  cursor: move;
+}
