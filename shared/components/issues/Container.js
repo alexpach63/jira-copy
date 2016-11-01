@@ -3,6 +3,22 @@ import update from 'react/lib/update';
 import Issue from './Issue';
 import { DropTarget } from 'react-dnd';
 
+import { connect } from 'react-redux';
+
+// const mapStateToNewsProps = (state) => {
+//   return {
+//     issues: state.issues
+//   };
+// };
+// const mapDispatchToNewsProps = (dispatch) => {
+//   return {
+//     changeType: () => {
+//       dispatch(changeType())
+//     }
+//   };
+// };
+// @connect(mapStateToNewsProps, mapDispatchToNewsProps)
+
 class Container extends Component {
 
 	constructor(props) {
@@ -11,14 +27,20 @@ class Container extends Component {
 	}
 
 	pushIssue(issue) {
+		this.props.changeType(issue);
+		// console.log(this.props);
+		console.log('push');
+		// console.log(issue);
 		this.setState(update(this.state, {
 			issueses: {
-				$push: [ issue ]
+				$push: [ {...issue, type: this.props.id}]
 			}
 		}));
 	}
 
-	removeIssue(index) {		
+	removeIssue(index) {	
+		// console.log('remove');	
+		// console.log(index);	
 		this.setState(update(this.state, {
 			issueses: {
 				$splice: [
@@ -29,6 +51,7 @@ class Container extends Component {
 	}
 
 	moveIssue(dragIndex, hoverIndex) {
+		console.log('move');
 		const { issueses } = this.state;		
 		const dragIssue = issueses[dragIndex];
 
@@ -71,6 +94,7 @@ class Container extends Component {
 
 const issueTarget = {
 	drop(props, monitor, component ) {
+		console.log(props);
 		const { id } = props;
 		const sourceObj = monitor.getItem();		
 		if ( id !== sourceObj.listId ) component.pushIssue(sourceObj.issue);

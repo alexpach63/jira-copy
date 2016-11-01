@@ -13,3 +13,13 @@ export const getIssues = () => {
     })
   }
 }
+
+export const changeType = (issue) => {
+  console.log('lol');
+  console.log(issue);
+  console.log('lol');
+  return {
+    type: 'CHANGE_TYPE',
+    payload: issue
+  }
+}

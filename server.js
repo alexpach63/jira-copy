@@ -67,8 +67,7 @@ app.get('/todosAll', (req, res) => {
 	res.send(lol);
 })
 
-app.get('/api/issues', (req, res) => {
-  var issues = [
+const issues = [
     {id: 1, machine_name: 'C4R-301', name: 'Реалтайм статусов', text: 'issue1', type: 1},
     {id: 2, machine_name: 'C4R-302', name: 'Лендинг призов за ранги', text: 'issue2', type: 2},
     {id: 3, machine_name: 'C4R-303', name: 'Процесс регистрации', text: 'issue3', type: 3},
@@ -82,7 +81,19 @@ app.get('/api/issues', (req, res) => {
     {id: 11, machine_name: 'C4R-311', name: 'Аналитика', text: 'issue11', type: 2},
     {id: 12, machine_name: 'C4R-312', name: 'Доделать приложение', text: 'issue12', type: 1},
   ];
+
+app.get('/api/issues', (req, res) => {
   res.send(issues);
+})
+
+app.get('/api/issue/:issueId', (req, res) => {
+  var issue = {};
+  for (var i = 0; i < issues.length; i++) {
+    if(issues[i].id == req.params.issueId){
+      issue = issues[i];
+    }
+  }
+  res.send(issue);
 })
 
 app.get('*', (req, res) => {

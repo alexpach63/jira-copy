@@ -2,9 +2,9 @@ import React, { Component , PropTypes }   from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Container from './Container';
-import { getIssues } from '../../actions/issuesActions';
-import { connect } from 'react-redux';
+import { getIssues, changeType } from '../../actions/issuesActions';
 import flow from 'lodash/flow';
+import { connect } from 'react-redux';
 
 const mapStateToNewsProps = (state) => {
   return {
@@ -15,6 +15,9 @@ const mapDispatchToNewsProps = (dispatch) => {
   return {
     onNewsClick: () => {
       dispatch(getIssues())
+    },
+    changeType: () => {
+      dispatch(changeType())
     }
   };
 };
@@ -38,7 +41,9 @@ class App extends Component {
   }
 
   componentWillMount(){
-    this.props.onNewsClick();
+    if(this.props.issues.length === 0){
+      this.props.onNewsClick();
+    }
     // console.log('componentWillMount: компонент будет примонтирован. В данный момент у нас нет возможности посмотреть DOM элементы. на клиенте и сервере');
   }
 
@@ -84,11 +89,11 @@ class App extends Component {
             </div>
 
             <div className="issueses__list">
-              <Container id={1} list={issues.filter((i)=>{return i.type==1})} />
-              <Container id={2} list={issues.filter((i)=>{return i.type==2})} />
-              <Container id={3} list={issues.filter((i)=>{return i.type==3})} />
-              <Container id={4} list={issues.filter((i)=>{return i.type==4})} />
-              <Container id={5} list={issues.filter((i)=>{return i.type==5})} />
+              <Container id={1} changeType={changeType} list={issues.filter((i)=>{return i.type==1})} />
+              <Container id={2} changeType={changeType} list={issues.filter((i)=>{return i.type==2})} />
+              <Container id={3} changeType={changeType} list={issues.filter((i)=>{return i.type==3})} />
+              <Container id={4} changeType={changeType} list={issues.filter((i)=>{return i.type==4})} />
+              <Container id={5} changeType={changeType} list={issues.filter((i)=>{return i.type==5})} />
             </div>
           </div>
           
