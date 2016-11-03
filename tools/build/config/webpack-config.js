@@ -22,7 +22,8 @@ var webpackConfig = {
     path: BUILD_FOLDER,
     publicPath: PUBLIC_PATH,
     // filename: BUILD_FILE,
-    filename: PROD ? 'app.min.js' : 'app.js'
+    filename: PROD ? 'app.min.js' : 'app.js',
+    chunkFilename: PROD ? '[id].chunk.min.js' : '[id].chunk.js',
   },
   devtool: 'cheap-module-source-map',
   // devtool: 'inline-source-map',

@@ -10,7 +10,7 @@ class TopMenu extends React.Component {
         <ul role="nav">
           <li><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
           <li><NavLink to="/issues">Issues</NavLink></li>
-          <li><NavLink to="/todos">Todos</NavLink></li>
+          <li><NavLink to="/game">Game</NavLink></li>
         </ul>
       </header>
     );
